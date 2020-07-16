@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const propietario = require('./propietario');
 const { Schema } = mongoose;
 
 const MascotaSchema = new Schema({
@@ -8,7 +9,7 @@ const MascotaSchema = new Schema({
     edad: { type: Number, required: true },
     esterilizado: { type: String, required: true },
     fechaNacimiento: { type: Date, required: false },
+    propietario: { type: Schema.Types.ObjectId, ref: propietario },
 })
-
 
 module.exports = mongoose.model('Mascota', MascotaSchema);

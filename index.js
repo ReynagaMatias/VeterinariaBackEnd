@@ -11,8 +11,8 @@ app.use(cors({ origin: 'http://localhost:4200' }));
 
 app.use('/api/mascota', require('./routes/mascota.router'));
 app.use('/api/turno', require('./routes/turno.router'));
-
-
+app.use('/api/usuario', require('./routes/usuario.router'));
+app.use('/api/propietario', require('./routes/propietario.router'));
 //setting
 app.set('port', process.env.PORT || 3000);
 

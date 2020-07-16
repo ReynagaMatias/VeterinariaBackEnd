@@ -3,7 +3,7 @@ const Mascota = require('../models/mascota');
 const mascotaCtrl = {}
 
 mascotaCtrl.getMascotas = async(req, res) => {
-    mascotas = await Mascota.find();
+    mascotas = await Mascota.find().populate("propietario");
     res.json(mascotas);
 }
 
@@ -24,11 +24,6 @@ mascotaCtrl.getMascota = async(req, res) => {
 }
 
 mascotaCtrl.editMascota = async(req, res) => {
-    /*const sector = {
-        nombre: req.body.nombre,
-        mail: req.body.email,
-        dependencia: req.body.dependencia,
-    };*/
     const vmascota = new Mascota(req.body);
     await Mascota.findByIdAndUpdate(req.params.id, { $set: vmascota }, { new: true });
     res.json({
