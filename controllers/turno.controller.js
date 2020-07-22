@@ -6,6 +6,7 @@ turnoCtrl.getTurnos = async(req, res) => {
     res.json(turnos);
 }
 
+
 turnoCtrl.createTurno = async(req, res) => {
     const turno = new Turno(req.body);
     await turno.save();
